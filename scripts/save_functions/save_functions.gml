@@ -4,7 +4,7 @@ function load_game()
 		exit;
 	
 	ds_map_destroy(global.savedata)
-	global.savedata = ds_map_secure_load(global.filename)
+	global.savedata = fixed_secure_load(global.filename)
 	
 	global.hp_max = ds_map_find_value(global.savedata,"hp_max")
 	global.hearts = ds_map_find_value(global.savedata,"hearts")
@@ -136,4 +136,50 @@ function write_globals()
 	ds_map_replace(global.savedata,"critical_card",global.critical_card)
 	ds_map_replace(global.savedata,"kinship_card",global.kinship_card)
 	ds_map_replace(global.savedata,"cursed_card",global.cursed_card)
+}
+
+function get_current_account()
+{
+	for (var i = 0; i < switch_accounts_get_accounts(); i++)
+	{
+		if (switch_accounts_is_user_open(i))
+			return i;
+	}
+	return -1;
+}
+
+function fixed_secure_save(_map, _filename)
+{
+	if (os_type == os_switch)
+	{
+		ini_open(_filename);
+		ini_write_string("data", "map", ds_map_write(_map));
+		ini_close();
+		switch_save_data_commit();
+	}
+	else
+	{
+		ds_map_secure_save(_map, _filename);
+	}
+}
+
+function fixed_secure_load(_filename)
+{
+	if (os_type == os_switch)
+	{
+		var _map = ds_map_create();
+		if (file_exists(_filename))
+		{
+			ini_open(_filename);
+			var _str = ini_read_string("data", "map", "");
+			ini_close();
+			if (_str != "")
+				ds_map_read(_map, _str);
+		}
+		return _map;
+	}
+	else
+	{
+		return ds_map_secure_load(_filename);
+	}
 }

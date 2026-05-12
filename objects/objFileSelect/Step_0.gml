@@ -103,5 +103,5 @@ if kSwap && selection < 3 //&& can_load //load or new game or go to a menu
 	if selection = 2 && !simon2_new
 		{ ds_map_replace( global.options,"icon file 2",irandom(22) ) }
 		
-	ds_map_secure_save(global.options,"Castlevania_Options.sav")
+	fixed_secure_save(global.options,"Castlevania_Options.sav")
 }

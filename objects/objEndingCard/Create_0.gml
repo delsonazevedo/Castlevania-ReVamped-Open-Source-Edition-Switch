@@ -31,6 +31,6 @@ if global.collection <= 15
 	image_index = 3
 }
 
-ds_map_secure_save(global.gallery,"Castlevania_Endings.sav")
+fixed_secure_save(global.gallery,"Castlevania_Endings.sav")
 
 instance_create(x,y,objFadeInShutter)

@@ -1,5 +1,5 @@
 /// @description restart game
-ds_map_secure_save(global.gallery,"Castlevania_Endings.sav")
+fixed_secure_save(global.gallery,"Castlevania_Endings.sav")
 
 instance_create(x,y,objFadeOutShutter)
 

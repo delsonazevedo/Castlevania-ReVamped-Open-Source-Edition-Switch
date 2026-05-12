@@ -107,12 +107,12 @@ if kAccept //control customizing, default values, credits, or leave
 	if selection = 3 //main controls
 	{
 		room_goto(rmControlOptions)
-		ds_map_secure_save(global.options,"Castlevania_Options.sav")
+		fixed_secure_save(global.options,"Castlevania_Options.sav")
 	}
 	if selection = 4 //menu controls
 	{
 		room_goto(rmMenuOptions)
-		ds_map_secure_save(global.options,"Castlevania_Options.sav")
+		fixed_secure_save(global.options,"Castlevania_Options.sav")
 	}
 	if selection = 5 //default values sans controls
 	{
@@ -126,12 +126,12 @@ if kAccept //control customizing, default values, credits, or leave
 	}
 	if selection = 6 //credits
 	{
-		ds_map_secure_save(global.options,"Castlevania_Options.sav")
+		fixed_secure_save(global.options,"Castlevania_Options.sav")
 		room_goto(rmCreditsOptions)
 	}
 	if selection = 10 //exit
 	{
-		ds_map_secure_save(global.options,"Castlevania_Options.sav")
+		fixed_secure_save(global.options,"Castlevania_Options.sav")
 		room_goto(rmFileSelect)
 	}
 }
@@ -139,6 +139,6 @@ if kAccept //control customizing, default values, credits, or leave
 if kCancel
 {
 	bitsound(sndWeaponWhip)
-	ds_map_secure_save(global.options,"Castlevania_Options.sav")
+	fixed_secure_save(global.options,"Castlevania_Options.sav")
 	room_goto(rmFileSelect)
 }

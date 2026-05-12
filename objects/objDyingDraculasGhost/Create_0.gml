@@ -9,7 +9,7 @@ face_player(0)
 
 if !global.boss_rush
 {
-	ds_map_secure_save(global.savedata,global.filename)
+	fixed_secure_save(global.savedata,global.filename)
 	instance_create(x,y,objSavePopup)
 }
 

@@ -44,7 +44,7 @@ if (!file_exists("Simon0.sav"))
 	simon0_new = true
 else
 {
-	simon0 = ds_map_secure_load("Simon0.sav")
+	simon0 = fixed_secure_load("Simon0.sav")
 	
 	simon0_collection = ds_map_find_value(simon0,"collection")
 	simon0_area = ds_map_find_value(simon0,"area")
@@ -56,7 +56,7 @@ if (!file_exists("Simon1.sav"))
 	simon1_new = true
 else
 {
-	simon1 = ds_map_secure_load("Simon1.sav")
+	simon1 = fixed_secure_load("Simon1.sav")
 
 	simon1_collection = ds_map_find_value(simon1,"collection")
 	simon1_area = ds_map_find_value(simon1,"area")
@@ -68,7 +68,7 @@ if (!file_exists("Simon2.sav"))
 	simon2_new = true
 else
 {
-	simon2 = ds_map_secure_load("Simon2.sav")
+	simon2 = fixed_secure_load("Simon2.sav")
 	
 	simon2_collection = ds_map_find_value(simon2,"collection")
 	simon2_area = ds_map_find_value(simon2,"area")

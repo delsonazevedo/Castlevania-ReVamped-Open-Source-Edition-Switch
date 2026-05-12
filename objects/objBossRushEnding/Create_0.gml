@@ -30,7 +30,7 @@ if new_record
 	alarm[0] = 120 + 45
 }
 
-ds_map_secure_save( global.gallery,"Castlevania_Endings.sav" )
+fixed_secure_save( global.gallery,"Castlevania_Endings.sav" )
 
 congrats = false
 

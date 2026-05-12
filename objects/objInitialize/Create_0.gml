@@ -1,4 +1,14 @@
 /// @description file independent variables + BGM loop points
+
+if (os_type == os_switch)
+{
+	switch_accounts_select_account(true, false, false);
+
+	var acc = get_current_account();
+	if (acc != -1)
+		switch_save_data_mount(acc);
+}
+
 global.options = ds_map_create()
 
 //load options
@@ -18,7 +28,7 @@ if (!file_exists("Castlevania_Options.sav"))
 }
 else
 {
-	global.options = ds_map_secure_load("Castlevania_Options.sav")
+	global.options = fixed_secure_load("Castlevania_Options.sav")
 	
 	global.volumeSFX = ds_map_find_value(global.options,"volumeSFX")
 	global.volumeBGM = ds_map_find_value(global.options,"volumeBGM")
@@ -53,10 +63,10 @@ if (!file_exists("Castlevania_Endings.sav"))
 	ds_map_replace(global.gallery,"bossrush",0)
 	ds_map_replace(global.gallery,"record_secs",359999)
 	ds_map_replace(global.gallery,"record","--:--:--\n$----")
-	ds_map_secure_save(global.gallery,"Castlevania_Endings.sav")
+	fixed_secure_save(global.gallery,"Castlevania_Endings.sav")
 }
 else
-	global.gallery = ds_map_secure_load("Castlevania_Endings.sav")
+	global.gallery = fixed_secure_load("Castlevania_Endings.sav")
 
 ///@description Initilize System and add palettes
 
