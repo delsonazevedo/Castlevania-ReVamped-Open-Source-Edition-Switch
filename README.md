@@ -1,3 +1,6 @@
+# About This Fork
+This fork was made to adjust the source to be exported with: [ZeusNX](https://github.com/SoraStream/ZeusNX) for Nintendo Switch.
+
 # Castlevania-ReVamped-Open-Source-Edition
  The Open-Source version of Castlevania ReVamped!
 
